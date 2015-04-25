@@ -2,24 +2,25 @@
 <html lang="es">
 <head>
 	<meta charset="UTF-8">
-	<title>Wordpress blog</title>
+	<title> <?php bloginfo('name') ?></title>
+	<link rel="stylesheet" href="<?php bloginfo(stylesheet_url) ?>">
 </head>
 <body>
+	<h1> <?php bloginfo('name'); ?> </h1>
+	<h2><?php bloginfo('description') ?></h2>
 	<section>
-		<article>
-			<?php 
-
-			if (have_post()):
-				while (have(post)) : the_post(); ?>
-					
-				<h1>	<?php the_title(); ?>	</h1>
-				<?php the_content(); ?>
-				<?php endwhile;
-				else : 
-						echo '<p>No content found </p>';
-					endif; 
-				?> 
-		</article>
+		<ul>
+			<li><?php bloginfo('name') ?></li>
+			<li><?php bloginfo('description') ?></li>
+			<li><?php bloginfo('wpurl') ?></li>
+			<li><?php bloginfo('admin_email') ?></li>
+			<li><?php bloginfo('charset') ?></li>
+			<li><?php bloginfo('version') ?></li>
+			<li><?php bloginfo('html_type') ?></li>
+			<li><?php bloginfo('language') ?></li>
+			<li><?php bloginfo('stylesheet_directory') ?></li>
+			<li><?php bloginfo('stylesheet_url') ?></li>
+		</ul>
 	</section>
 </body>
 </html>
