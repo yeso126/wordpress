@@ -1,26 +1,34 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en"></html>
 <head>
-	<meta charset="UTF-8">
-	<title> <?php bloginfo('name') ?></title>
-	<link rel="stylesheet" href="<?php bloginfo(stylesheet_url) ?>">
+  <meta charset="UTF-8"/>
+  <title><?php bloginfo('title'); ?></title>
+  <link rel="stylesheet" href=" <?php bloginfo('stylesheet_url'); ?> "/>
 </head>
 <body>
-	<h1> <?php bloginfo('name'); ?> </h1>
-	<h2><?php bloginfo('description') ?></h2>
-	<section>
-		<ul>
-			<li><?php bloginfo('name') ?></li>
-			<li><?php bloginfo('description') ?></li>
-			<li><?php bloginfo('wpurl') ?></li>
-			<li><?php bloginfo('admin_email') ?></li>
-			<li><?php bloginfo('charset') ?></li>
-			<li><?php bloginfo('version') ?></li>
-			<li><?php bloginfo('html_type') ?></li>
-			<li><?php bloginfo('language') ?></li>
-			<li><?php bloginfo('stylesheet_directory') ?></li>
-			<li><?php bloginfo('stylesheet_url') ?></li>
-		</ul>
+	<header class="header">
+		<h1> <?php bloginfo('name'); ?></h1>
+		<h2>  <?php bloginfo('description'); ?></h2>
+	</header>
+	<section class="loop">
+			<?php query_posts( 'posts_per_pages=5' ); ?>
+			<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+				<article class="article">
+					<header class="article_title">
+						<h3><?php the_title(); ?></h3>
+					</header>
+					<strong><?php the_author(); ?></strong>
+					<?php the_excerpt(); ?>
+					<small><?php the_date(); ?> </small>
+				</article> 
+			<!-- post -->
+			<?php endwhile; ?>
+			<!-- post navigation -->
+			<?php else: ?>
+				<h3>No se encontraron entradas</h3>
+			<!-- no posts found -->
+			<?php endif; ?>
+			<?php rewind_posts(); ?>
 	</section>
 </body>
-</html>
+
