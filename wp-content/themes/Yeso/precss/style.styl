@@ -1,7 +1,9 @@
 @import "normalize.styl"
 
-gris= #262626
-gris_claro= #C5C5D3
+gris= 			#262626
+gris_claro= 	#C5C5D3
+gris_oscuro=  	#424243
+
 body
 	background black
 	color white 
@@ -11,21 +13,27 @@ body
 	background gris
 	padding 1em 10%
 	text-align center 
-	img
-		position relative 
-		top 60px
-		left -100px
 .loop
 	display flex
 	flex-direction column
 	padding 2em 30%
 .article
-	padding 2em 
+	padding 0em 0em 2em 0em
+	margin 0em 0em 2em 0em
+	background gris_oscuro
 	color gris_claro
 	.article_title
 		background gris
 		color white
+		height 5em
 		font-size 1.2em 
-		text-align center 
+		text-align center
+		line-height 5em 
+		h3
+			margin 0 
+	.article_content
+		padding 2em
+		img
+			height auto 
 
 	
