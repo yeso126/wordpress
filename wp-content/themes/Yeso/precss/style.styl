@@ -3,13 +3,22 @@
 gris= 			#262626
 gris_claro= 	#C5C5D3
 gris_oscuro=  	#424243
-
+naranja =  		#FF3300
 body
 	background black
 	color white 
 	font-size 16px
+a
+	color gris_claro
+	text-decoration none
+a:visited 
+	color gris_claro
+a:hover
+	transition .3s 
+	color naranja
 
 .header
+	color gris_claro
 	background gris
 	padding 1em 10%
 	text-align center 
@@ -36,4 +45,11 @@ body
 		img
 			height auto 
 
+.footer
+	text-align center 
+	background gris 
 	
+.footer-single
+	text-align center
+	font-size .8em 
+	background gris 
